@@ -1,203 +1,146 @@
 <template>
   <div id="app">
-      <div id="page-wrap">
-        <Home />
-      </div>
-      <component :is="currentMenu" :right="side === 'right' ? true : false">
-        <a href="#">
-          <i class="fa fa-fw fa-star-o"></i>
-          <span>Favourites</span>
-        </a>
-        <a href="#">
-          <i class="fa fa-fw fa-bell-o"></i>
-          <span>Alerts</span>
-        </a>
-        <a href="#">
-          <i class="fa fa-fw fa-envelope-o"></i>
-          <span>Messages</span>
-        </a>
-        <a href="#">
-          <i class="fa fa-fw fa-comment-o"></i>
-          <span>Comments</span>
-        </a>
-        <a href="#">
-          <i class="fa fa-fw fa-bar-chart-o"></i>
-          <span>Analytics</span>
-        </a>
-        <a href="#">
-          <i class="fa fa-fw fa-newspaper-o"></i>
-          <span>Reading</span>
-        </a>
-      </component>
-    </div>
+    <Navbar/>
+    <router-view />
+  </div>
 </template>
 
 <script>
-import push from "./components/push";
-import Menu from "./components/Menu";
-import Home from "./components/Home";
+import Navbar from './components/Navbar';
 
 export default {
-  data() {
-    return {
-      side: "left",
-      currentMenu: "push",
-    };
-  },
+  name: 'App',
   components: {
-    push,
-    Menu,
-    Home,
+    Navbar,
   },
-  methods: {
-    changeMenu(menu) {
-      this.currentMenu = menu.replace(/ +/g, "").toLowerCase();
-      return this.currentMenu;
-    },
-    changeSide(side) {
-      this.side = side;
-    },
-  },
+  // computed: {
+  //   show() {
+  //     if (this.$route.name !== 'login' && this.$route.name !== 'vote') return true;
+
+  //     return false;
+  //   },
+  // },
 };
 </script>
 
-<style lang="less">
-// @import url("https://use.fontawesome.com/releases/v5.9.0/css/all.css");
-@import url("http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css");
-/*Body*/
-#content {
-  padding: 100px 0%;
-  background-color: rgb(243, 243, 243);
-  text-align: justify;
+<style>
+html {
+  background-color: #f7fafc !important;
+}
+
+.h-full {
   height: 100vh;
-  position: relative;
-  display: table;
-  width: 100%;
-  transition: all 0.75s ease;
-}
-.visible_menu #content {
-  transform: translateX(260px);
 }
 
-#hr {
-  color: #000000;
+.items-center {
+  align-items: center;
 }
 
-.bm-burger-button {
-  position: absolute;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
+.flex {
+  display: flex;
 }
 
-/* .right .bm-burger-button {
-      left: initial;
-      right: 36px;
-    } */
-
-.bm-burger-bars {
-  background: #373a47;
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
-.bm-morph-shape {
-  fill: #373a47;
+.mr-1 {
+  margin-right: 0.25rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mr-3 {
+  margin-right: 0.75rem;
+}
+.mr-4 {
+  margin-right: 1rem;
+}
+.mr-5 {
+  margin-right: 1.25rem;
+}
+.mr-6 {
+  margin-right: 1.5rem;
+}
+.mr-8 {
+  margin-right: 2rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
 }
 
-.bm-menu {
-  background: #373a47;
-
-  a {
-    color: #b8b7ad;
-
-    &:hover,
-    &:focus {
-      color: #c94e50;
-    }
-  }
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
-.menu-1 {
-  .bm-cross {
-    background: #bdc3c7;
-  }
-
-  .bm-menu {
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-  }
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
-
-// Footer Style
-ol, ul {
-    list-style: none;
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
-blockquote, q {
-    quotes: none;
+.mb-4 {
+  margin-bottom: 1rem;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
-*{
-    box-sizing: border-box;
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.ml-3 {
+  margin-left: 0.75rem;
+}
+.ml-4 {
+  margin-left: 1rem;
+}
+.ml-5 {
+  margin-left: 1.25rem;
+}
+.ml-6 {
+  margin-left: 1.5rem;
+}
+.ml-8 {
+  margin-left: 2rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
 }
 
-body{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.header{    
-    background: #6e7070;
-    background: -moz-linear-gradient(left, #5b5e5d 0%, #490202 100%);
-    background: -webkit-linear-gradient(left, #323636 0%,#5f0202 100%);
-    background: linear-gradient(to right, #0f0f0f 0%,#c10000 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2aa29a', endColorstr='#007fc1',GradientType=1 );
-    -webkit-box-shadow: inset 0px 0 4px 0 rgba(0,0,0,0.4);
-    box-shadow: inset 0px 0 4px 0 rgba(0,0,0,0.4);
-    width: 100%;
-    height: 50%;
-    padding-right: 20px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.header ul li{
-    display: inline-block;
-}
-
-.header a{
-    color: #fff;
-    padding: 15px 15px 20px 15px;
-    display: block;
-}
-
-.header a:hover{
-    text-decoration: none;
-}
-
-
-.fixed .logo img{
-    width: 25px;
-}
-
-.top{
-    padding: 30px;
-    text-align: left;;
-}
-
-.logo{
-    margin-bottom: 30px;
-}
-
-.tagline{
-    text-transform: uppercase;
-    font-size: 20px;
-    padding-top: 30px;
+.leading-none {
+  line-height: 1;
 }
 </style>
