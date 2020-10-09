@@ -85,21 +85,4 @@ export default {
   color: #ffffff;
 }
 
-.bg-3 {
-  background-color: #ffffff;
-  color: #555555;
-}
-.container-fluid {
-  padding-top: 50px;
-  padding-bottom: 40px;
-  width: 100%;
-}
-.foot{
-  border: none; 
-  position: fixed; 
-  width: 100%;
-  bottom: 0; 
-  z-index:50;
-  height: 9% !important;
-}
 </style>
